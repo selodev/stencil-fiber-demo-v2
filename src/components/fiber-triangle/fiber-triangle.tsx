@@ -29,13 +29,13 @@ export class FiberTriangle {
     }
     s = s / 2;
 
-    var slowDown = true;
+    var slowDown = false;
     if (slowDown) {
-      //var e = performance.now() + 0.8;
-      // while (performance.now() < e) {
-      //  // console.log("e")
-      //   // Artificially long execution time.
-      // }
+      var e = performance.now() + 0.8;
+      while (performance.now() < e) {
+        //console.log("e")
+        // Artificially long execution time.
+      }
     }
 
     return [
