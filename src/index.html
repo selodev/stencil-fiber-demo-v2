@@ -76,21 +76,5 @@
   <div class="fiber-demo">
     <fiber-demo></fiber-demo>
   </div>
-  <script type="text/javascript">
-    (async () => {
-      await customElements.whenDefined('fiber-demo');
-      var start = Date.now();
-      var baseEl = document.querySelector('fiber-demo');
-
-      function update() {
-        baseEl.elapsed = Date.now() - start;
-        requestAnimationFrame(update);
-      }
-
-      requestAnimationFrame(update);
-    })();
-
-  </script>
 </body>
-
 </html>

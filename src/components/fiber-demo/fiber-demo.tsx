@@ -1,12 +1,13 @@
-import { Component, Prop,h, Host, Element } from '@stencil/core';
+import { Component,h, Host, State } from '@stencil/core';
+
+const start = Date.now();
 
 @Component({
   tag: 'fiber-demo',
   shadow: true
 })
 export class FiberDemo {
-  @Element() el: HTMLElement
-  @Prop() elapsed: number = 0;
+  @State() elapsed: number = 0;
 
   seconds: number = 0;
   intervalID: number;
@@ -14,6 +15,7 @@ export class FiberDemo {
   componentDidLoad() {
     var tick: Function = this.tick.bind(this);
     this.intervalID = setInterval(tick, 1000);
+    requestAnimationFrame(this.update);
   }
   tick() {
     this.seconds = (this.seconds % 10) + 1;
@@ -21,7 +23,10 @@ export class FiberDemo {
   disconnectedCallback() {
     clearInterval(this.intervalID);
   }
-  
+  update = () => {
+    this.elapsed = Date.now() - start;
+    requestAnimationFrame(this.update);
+  }
 
   render() {
     const elapsed = this.elapsed;

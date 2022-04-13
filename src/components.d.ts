@@ -7,7 +7,6 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface FiberDemo {
-        "elapsed": number;
     }
     interface FiberDot {
         "size": number;
@@ -49,7 +48,6 @@ declare global {
 }
 declare namespace LocalJSX {
     interface FiberDemo {
-        "elapsed"?: number;
     }
     interface FiberDot {
         "size"?: number;
